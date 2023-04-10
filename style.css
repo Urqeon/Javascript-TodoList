@@ -1,0 +1,22 @@
+html, body {
+    padding: 5px;
+    height: 100%;
+  }
+  .card-first-color{
+    background-color: #1a2639;
+  }
+
+    .card-third-color{
+	background: #9fd3c7; 
+  }
+  .border-4 {
+    border: 5px solid #9fd3c7 !important;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .todo-add, .col-7 {
+      width: 100%;
+    }
+
+  
+  }
