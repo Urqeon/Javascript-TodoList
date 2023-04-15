@@ -103,7 +103,7 @@ if(e.target.className==="fa fa-remove"){
     todo.some(function(todos, i) {
         if(remTodo.textContent === todos) {
           todo.splice(i, 1);
-          return true; // döngüyü durdur
+          return true;
         }
       });
     localStorage.setItem("todo",JSON.stringify(todo));
