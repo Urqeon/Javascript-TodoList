@@ -6,16 +6,18 @@ const clearBtn = document.getElementById("clearButton");
 const filterInput = document.getElementById("search-input");
 let todo = [];
 
+
+/*HTML sayfası yüklendikten sonra aktif olan event. Storagedaki toDOları arayüzden listeler ve
+ana modülü çalıştırır
+*/
 document.addEventListener("DOMContentLoaded", function() {
     getStorageForUI();
     run();
-    
-  
 });
 
+//işleyişi sağlayan ana modül
 function run()
-{
-    
+{ 
     addBtn.addEventListener("click" ,()=>{
         const inputText = input.value;
         if(input.value == null || input.value =="")
@@ -47,6 +49,7 @@ function run()
       });
 }
 
+//arayüzde görüntülenecek toDolar için elementleri oluşturur
 function addTodoUI(newTodo)
 {
     const li =document.createElement("li");
@@ -64,6 +67,7 @@ function addTodoUI(newTodo)
     input.value = "";
 }
 
+//localStorage'a yeni toDo ekleme
 function addTodoStorage(newTodo){
     if(localStorage.getItem("todo")===null){
         todo = [];
@@ -75,6 +79,8 @@ function addTodoStorage(newTodo){
     localStorage.setItem("todo",JSON.stringify(todo));
 }
 
+
+//localStoragedeki toDoları arayüzde görüntüleme
 function getStorageForUI()
 {
     if(localStorage.getItem("todo")===null){
@@ -88,6 +94,7 @@ function getStorageForUI()
     })
 }
 
+//Tekli toDo silme 
 function removeTodo(e){
 if(e.target.className==="fa fa-remove"){
     const remTodo = e.target.parentElement.parentElement;
@@ -110,6 +117,7 @@ if(e.target.className==="fa fa-remove"){
 }
 }
 
+// toDo listesini temizleme
 function clearStorage(){
   
     todoListForRemove = document.querySelectorAll(".list-group-item");
@@ -120,6 +128,7 @@ function clearStorage(){
     localStorage.setItem('todo',JSON.stringify(todo));
 }
 
+// toDo Filrteleme
 function todoFilter(e){
     const filterValue = e.target.value.trim().toLowerCase();
     const todoLis = document.querySelectorAll(".list-group-item")
